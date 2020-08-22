@@ -1,0 +1,12 @@
+.links__container {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding-top: 20px;
+}
+.menu__link {
+  padding-right: 35px;
+}
+.menu__link-active {
+  color: white;
+}

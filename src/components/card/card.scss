@@ -1,0 +1,105 @@
+.card__container {
+  width: 100%;
+  display: flex;
+  background-color: #303030;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+.card__container-second {
+  margin-top: 0px;
+}
+.image__bird {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  background-color: #e6e6e6;
+  border-radius: 10px;
+}
+.name-of-bird {
+  color: white;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #404040;
+}
+.card-info__container {
+  width: 100%;
+  margin-right: 40px;
+}
+.rhap_container {
+  background-color: transparent;
+  box-shadow: none;
+  margin-top: -20px;
+}
+.rhap_time {
+  color: #e6e6e6;
+}
+.rhap_play-pause-button {
+  // position: absolute;
+  // top: 303px;
+  // left: 205px;
+}
+.rhap_total-time {
+  // position: absolute;
+  // top: 340px;
+  // right: 110px;
+}
+.rhap_current-time {
+  // position: absolute;
+  // top: 340px;
+}
+.rhap_volume-container {
+  width: 100px;
+  // position: absolute;
+  // top: 363px;
+  // left: 210px;
+}
+.rhap_progress-section {
+  margin-left: 20px;
+}
+.rhap_repeat-button {
+  display: none;
+}
+.rhap_rewind-button {
+  display: none;
+}
+.rhap_forward-button {
+  display: none;
+}
+.species-of-bird {
+  color: white;
+  font-family: "Poppins";
+  border-bottom: 1px solid #404040;
+  margin-left: 20px;
+  margin-top: -28px;
+}
+.not-species-of-bird {
+  color: white;
+  margin-left: 10px;
+  font-family: "Arial";
+}
+.not-description-of-bird {
+  background-color: #303030;
+  padding: 10px;
+  margin-top: -20px;
+  height: 65%;
+  font-family: "Arial";
+  color: white;
+}
+.description-of-bird {
+  background-color: #303030;
+  padding: 10px;
+  margin-top: -10px;
+  color: white;
+}
+.main_card__container {
+  max-width: 50%;
+  height: 303px;
+  background-color: #303030;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+.main_card__container-before-click {
+  min-width: 50%;
+}

@@ -1,5 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import classNames from "classnames";
+import correctAudio from "../../assets/correctSound.wav";
+import incorrectAudio from "../../assets/incorrectSound.wav";
+
 import "./options.scss";
 
 export const Option = ({
@@ -28,13 +31,15 @@ export const Option = ({
       checkAnswer(idx, currentBird);
       if (idx === currentBird) {
         setRight(true);
-        const audioCorrectAnswer = new Audio(
-          "https://song.link/by/i/1481418646"
-        );
-        audioCorrectAnswer.play();
+        const correctSound = new Audio();
+        correctSound.preload = "auto";
+        correctSound.src = correctAudio;
+        correctSound.play();
       } else {
-        const audioWrongAnswer = new Audio("./correct_answer.mp3");
-        audioWrongAnswer.play();
+        const incorrectSound = new Audio();
+        incorrectSound.preload = "auto";
+        incorrectSound.src = incorrectAudio;
+        incorrectSound.play();
         setRight(false);
       }
     }

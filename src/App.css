@@ -9,7 +9,6 @@ body {
 }
 .menu__container {
   background-color: #459b7a;
-  height: 60px;
   margin: 0px 40px;
   border-radius: 10px;
 }
@@ -31,4 +30,57 @@ body {
 }
 .next_level__button-active {
   background-color: #00bc8c;
+}
+.end_game__container {
+  background-color: white;
+  height: 300px;
+  margin: 40px;
+  position: relative;
+  background-color: #303030;
+  border-radius: 5px;
+}
+.cogratulations {
+  font-size: 42px;
+  text-align: center;
+  color: white;
+}
+.score_congrats_text {
+  margin-top: -29px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+.try_again__button {
+  position: absolute;
+  bottom: 0px;
+  margin-bottom: 10px;
+  left: 45%;
+}
+.max_score_gif {
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 1120px) {
+  .game__container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 700px) {
+  .next_level__button {
+    margin-top: 122px;
+  }
+}
+@media (max-width: 500px) {
+  .next_level__button {
+    margin-top: 172px;
+  }
+  .header__container {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 320px) {
+  .max_score_gif {
+    width: 217px;
+  }
 }

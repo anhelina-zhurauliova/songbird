@@ -23,13 +23,18 @@ export const Option = ({
   }, [idx]);
 
   const handleOptionClick = () => {
+    setClickedBird(idx);
     if (!isFinished) {
-      setClickedBird(idx);
       checkAnswer(idx, currentBird);
       if (idx === currentBird) {
         setRight(true);
+        const audioCorrectAnswer = new Audio(
+          "https://song.link/by/i/1481418646"
+        );
+        audioCorrectAnswer.play();
       } else {
-        console.log(1);
+        const audioWrongAnswer = new Audio("./correct_answer.mp3");
+        audioWrongAnswer.play();
         setRight(false);
       }
     }

@@ -13,7 +13,7 @@ export const OptionsList = ({
   const dataForOprions = birdsData.filter((el) => el.id === idx);
   return (
     <div className="options__container">
-      <div className="options__list" onClick={(e) => console.log(e.target)}>
+      <div className="options__list">
         {dataForOprions.map((el, idx) => (
           <Option
             name={el.name}

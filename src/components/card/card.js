@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import classNames from "classnames";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -15,6 +15,7 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
   const description =
     clickedBird === null ? "Выберите птицу из списка" : data[0]?.description;
   const image = isCardToShow ? unknownImage : data[0]?.image;
+  const player = useRef();
 
   const nameOfBirdClass = classNames({
     "name-of-bird": clickedBird !== null,
@@ -36,6 +37,10 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
     "card__container-second": !isCardToShow,
   });
 
+  if (isFinished) {
+    player.current.audio.current.pause();
+  }
+
   return (
     <div className={mainCardContainerClass}>
       <div className={cardContainerClass}>
@@ -53,6 +58,7 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
           {isCardToShow ? null : <p className={speciesClass}>{species}</p>}
           {isCardToShow || clickedBird !== null ? (
             <AudioPlayer
+              ref={player}
               src={data[0]?.audio}
               autoPlayAfterSrcChange={false}
               autoPlay={false}

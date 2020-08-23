@@ -4,6 +4,9 @@
   background-color: #303030;
   border-radius: 5px;
   margin-top: 30px;
+  @media (max-width: 700px) {
+    flex-wrap: wrap;
+  }
 }
 .card__container-second {
   margin-top: 0px;
@@ -11,9 +14,10 @@
 .image__bird {
   width: 150px;
   height: 150px;
-  margin: 10px;
   background-color: #e6e6e6;
   border-radius: 10px;
+  display: block;
+  margin: 10px auto;
 }
 .name-of-bird {
   color: white;
@@ -22,6 +26,9 @@
   margin-left: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #404040;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 }
 .card-info__container {
   width: 100%;
@@ -35,28 +42,21 @@
 .rhap_time {
   color: #e6e6e6;
 }
-.rhap_play-pause-button {
-  // position: absolute;
-  // top: 303px;
-  // left: 205px;
-}
-.rhap_total-time {
-  // position: absolute;
-  // top: 340px;
-  // right: 110px;
-}
-.rhap_current-time {
-  // position: absolute;
-  // top: 340px;
-}
 .rhap_volume-container {
   width: 100px;
-  // position: absolute;
-  // top: 363px;
-  // left: 210px;
+}
+.rhap_volume-controls {
+  display: block;
+}
+.rhap_controls-section {
+  flex: 0;
 }
 .rhap_progress-section {
-  margin-left: 20px;
+  margin-left: -16px;
+  @media (max-width: 500px) {
+    margin-left: 0px;
+    margin-right: -41px;
+  }
 }
 .rhap_repeat-button {
   display: none;
@@ -67,12 +67,20 @@
 .rhap_forward-button {
   display: none;
 }
+.rhap_horizontal-reverse {
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+}
 .species-of-bird {
   color: white;
   font-family: "Poppins";
   border-bottom: 1px solid #404040;
   margin-left: 20px;
   margin-top: -28px;
+  @media (max-width: 700px) {
+    text-align: center;
+  }
 }
 .not-species-of-bird {
   color: white;
@@ -99,7 +107,17 @@
   background-color: #303030;
   margin-top: 30px;
   border-radius: 5px;
+  @media (max-width: 1120px) {
+    max-width: 100%;
+  }
 }
 .main_card__container-before-click {
   min-width: 50%;
+  @media (max-width: 1120px) {
+    min-width: 100%;
+    width: 100px;
+  }
+}
+.rhap_volume-bar-area {
+  width: 45%;
 }

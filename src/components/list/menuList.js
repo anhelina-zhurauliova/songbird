@@ -8,7 +8,7 @@ export const MenuList = ({ info, level }) => (
     {info.map((el, index) => {
       const navLevel = level - 1;
       return (
-        <li key={index}>
+        <li className="nav__link" key={index}>
           <Menulink isActive={navLevel === index} name={el} />
         </li>
       );

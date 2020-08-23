@@ -3,4 +3,16 @@
   font-family: Poppins;
   font-size: 30px;
   margin-right: 40px;
+  margin-top: 43px;
+  display: flex;
+  flex-wrap: nowrap;
+  @media (max-width: 510px) {
+    margin-top: 23px;
+    margin-right: unset;
+  }
+}
+.score__container {
+  @media (max-width: 510px) {
+    margin: 0 auto;
+  }
 }

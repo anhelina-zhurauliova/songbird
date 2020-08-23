@@ -17,6 +17,8 @@ function App() {
   const [currentBird, setCurrentBird] = useState(null);
   const [dataForCard, setDataForCard] = useState([]);
   const [isFinished, setIsFinished] = useState(false);
+  const [hideAfterFinish, setHideAfterFinish] = useState(false);
+  const [isMaxScore, setIsMaxScore] = useState(false);
 
   const handleClickNextLevel = () => {
     if (level < 6) {
@@ -30,13 +32,26 @@ function App() {
           return prevState;
         }
       });
+      setAttempts(0);
     } else {
+      setScore((prevState) => {
+        if (attempts < 5) {
+          return prevState + 5 - attempts;
+        } else {
+          return prevState;
+        }
+      });
+      setHideAfterFinish(true);
+      if (attempts === 0) {
+        setIsMaxScore(true);
+      }
     }
   };
   useEffect(() => {
     const dataForCurrentLevel = birdsData.filter((el) => el.id === level);
     setDataForCard(dataForCurrentLevel.sort(() => Math.random() - 0.5));
     setCurrentBird(dataForCurrentLevel[0]?.unic);
+    console.log("correct answer", dataForCurrentLevel[0]?.name);
   }, [level]);
 
   const dataForOptions = birdsData.filter(
@@ -54,6 +69,7 @@ function App() {
     next_level__button: true,
     "next_level__button-active": isFinished,
   });
+
   return (
     <div className="App">
       <div className="header__container">
@@ -63,31 +79,60 @@ function App() {
       <div className="menu__container">
         <MenuList info={infoMenu} level={level} />
       </div>
-      <div className="question__container">
-        <Card isCardToShow={true} data={dataForCard} isFinished={isFinished} />
-      </div>
-      <div className="game__container">
-        <OptionsList
-          idx={level}
-          setClickedBird={setClickedBird}
-          checkAnswer={checkAnswer}
-          clickedBird={clickedBird}
-          currentBird={currentBird}
-          isFinished={isFinished}
-        />
-        <Card
-          isCardToShow={false}
-          data={dataForOptions}
-          clickedBird={clickedBird}
-        />
-      </div>
-      <button
-        className={nextLevelBtnClass}
-        type="button"
-        onClick={handleClickNextLevel}
-      >
-        next level
-      </button>
+      {hideAfterFinish ? null : (
+        <div className="question__container">
+          <Card
+            isCardToShow={true}
+            data={dataForCard}
+            isFinished={isFinished}
+          />
+        </div>
+      )}
+      {hideAfterFinish ? null : (
+        <div className="game__container">
+          <OptionsList
+            idx={level}
+            setClickedBird={setClickedBird}
+            checkAnswer={checkAnswer}
+            clickedBird={clickedBird}
+            currentBird={currentBird}
+            isFinished={isFinished}
+          />
+          <Card
+            isCardToShow={false}
+            data={dataForOptions}
+            clickedBird={clickedBird}
+          />
+        </div>
+      )}
+      {hideAfterFinish ? null : (
+        <button
+          className={nextLevelBtnClass}
+          type="button"
+          onClick={handleClickNextLevel}
+        >
+          next level
+        </button>
+      )}
+
+      {hideAfterFinish ? (
+        <div className="end_game__container">
+          <p className="cogratulations">Поздравляем!</p>
+          <p className="score_congrats_text">
+            Вы набрали {score} баллов из 30 возможных {isMaxScore ? "!" : "."}
+          </p>
+          {isMaxScore ? (
+            <img
+              className="max_score_gif"
+              src="https://media.giphy.com/media/OHZ1gSUThmEso/giphy.gif"
+              alt="congrats"
+            />
+          ) : null}
+          {isMaxScore ? null : (
+            <button className="try_again__button">Попробуйте еще раз</button>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

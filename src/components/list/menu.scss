@@ -2,11 +2,18 @@
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  padding-top: 20px;
+  @media (max-width: 1300px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 .menu__link {
   padding-right: 35px;
 }
 .menu__link-active {
   color: white;
+}
+.nav__link {
+  height: 35px;
+  padding-top: 10px;
 }

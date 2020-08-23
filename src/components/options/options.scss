@@ -19,6 +19,10 @@
   border-radius: 5px;
   width: 100%;
   max-width: 50%;
+  @media (max-width: 1120px) {
+    max-width: 100%;
+    margin-right: 5px;
+  }
 }
 .option {
   color: #fcf7f0;

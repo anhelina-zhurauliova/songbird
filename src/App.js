@@ -21,31 +21,42 @@ function App() {
   const [isMaxScore, setIsMaxScore] = useState(false);
 
   const handleClickNextLevel = () => {
-    if (level < 6) {
-      setLevel((prevState) => prevState + 1);
-      setIsFinished(false);
-      setClickedBird(null);
-      setScore((prevState) => {
-        if (attempts < 5) {
-          return prevState + 5 - attempts;
-        } else {
-          return prevState;
+    if (isFinished) {
+      if (level < 6) {
+        setLevel((prevState) => prevState + 1);
+        setIsFinished(false);
+        setClickedBird(null);
+        setScore((prevState) => {
+          if (attempts < 5) {
+            return prevState + 5 - attempts;
+          } else {
+            return prevState;
+          }
+        });
+        setAttempts(0);
+      } else {
+        setScore((prevState) => {
+          if (attempts < 5) {
+            return prevState + 5 - attempts;
+          } else {
+            return prevState;
+          }
+        });
+        setHideAfterFinish(true);
+        if (attempts === 0 && score === 25) {
+          setIsMaxScore(true);
         }
-      });
-      setAttempts(0);
-    } else {
-      setScore((prevState) => {
-        if (attempts < 5) {
-          return prevState + 5 - attempts;
-        } else {
-          return prevState;
-        }
-      });
-      setHideAfterFinish(true);
-      if (attempts === 0) {
-        setIsMaxScore(true);
       }
     }
+  };
+  const handleClickTryAgainButton = () => {
+    setLevel(1);
+    setIsFinished(false);
+    setClickedBird(null);
+    setHideAfterFinish(false);
+    setIsMaxScore(false);
+    setScore(0);
+    setAttempts(0);
   };
   useEffect(() => {
     const dataForCurrentLevel = birdsData.filter((el) => el.id === level);
@@ -129,7 +140,12 @@ function App() {
             />
           ) : null}
           {isMaxScore ? null : (
-            <button className="try_again__button">Попробуйте еще раз</button>
+            <button
+              className="try_again__button"
+              onClick={handleClickTryAgainButton}
+            >
+              Попробовать еще раз
+            </button>
           )}
         </div>
       ) : null}

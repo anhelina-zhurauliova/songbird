@@ -66,9 +66,11 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
               customAdditionalControls={[]}
             />
           ) : null}
+          {isCardToShow ? null : (
+            <p className={decriptionClass}>{description}</p>
+          )}
         </div>
       </div>
-      {isCardToShow ? null : <p className={decriptionClass}>{description}</p>}
     </div>
   );
 };

@@ -27,6 +27,7 @@ body {
   border: 1px solid #444;
   transition: 0.3s;
   color: white;
+  outline: none;
 }
 .next_level__button-active {
   background-color: #00bc8c;
@@ -51,10 +52,12 @@ body {
   color: white;
 }
 .try_again__button {
-  position: absolute;
-  bottom: 0px;
-  margin-bottom: 10px;
-  left: 45%;
+  width: calc(100% - 80px);
+  margin: 40px;
+  background-color: #00bc8c;
+  border: 1px solid #444;
+  outline: none;
+  color: white;
 }
 .max_score_gif {
   display: block;
@@ -78,8 +81,15 @@ body {
   .header__container {
     flex-wrap: wrap;
   }
+  .cogratulations {
+    font-size: 35px;
+    padding-top: 15px;
+  }
+  .score_congrats_text {
+    font-size: 16px;
+  }
 }
-@media (max-width: 320px) {
+@media (max-width: 340px) {
   .max_score_gif {
     width: 217px;
   }

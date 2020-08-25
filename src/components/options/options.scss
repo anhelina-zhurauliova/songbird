@@ -36,6 +36,9 @@
   &:last-child {
     border-bottom: none;
   }
+  &:hover {
+    background-color: #b8bfa6;
+  }
 }
 .options__list {
   height: 303px;

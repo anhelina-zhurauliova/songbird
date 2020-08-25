@@ -31,6 +31,7 @@ body {
 .next_level__button-active {
   background-color: #b9c799;
   color: #424737;
+  cursor: pointer;
 }
 .end_game__container {
   background-color: white;

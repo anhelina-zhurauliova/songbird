@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext");
 
+.App {
+  height: 100%;
+}
 body {
   background-color: #222222;
 }
@@ -7,14 +10,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.menu__container {
-  background-color: #459b7a;
-  margin: 0px 40px;
-  border-radius: 10px;
-}
 .game__container {
   display: flex;
   margin: 0px 40px;
+  height: 100%;
 }
 .question__container {
   margin: 0px 40px;
@@ -70,13 +69,13 @@ body {
   }
 }
 @media (max-width: 700px) {
-  .next_level__button {
-    margin-top: 122px;
+  .margin_for__button {
+    margin-top: 150px;
   }
 }
 @media (max-width: 500px) {
-  .next_level__button {
-    margin-top: 172px;
+  .margin_for__button {
+    margin-top: 225px;
   }
   .header__container {
     flex-wrap: wrap;

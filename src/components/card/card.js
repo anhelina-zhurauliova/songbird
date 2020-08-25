@@ -12,7 +12,8 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
   const nameOfBirdFirstCard = isFinished
     ? data[0]?.name
     : nameWithStars?.join("");
-  const description =
+
+  const descriptionInfo =
     clickedBird === null ? "Выберите птицу из списка" : data[0]?.description;
   const image = isCardToShow ? unknownImage : data[0]?.image;
   const player = useRef();
@@ -67,7 +68,7 @@ export const Card = ({ isCardToShow, data, isFinished, clickedBird }) => {
             />
           ) : null}
           {isCardToShow ? null : (
-            <p className={decriptionClass}>{description}</p>
+            <p className={decriptionClass}>{descriptionInfo}</p>
           )}
         </div>
       </div>

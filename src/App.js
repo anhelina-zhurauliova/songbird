@@ -19,6 +19,7 @@ function App() {
   const [isFinished, setIsFinished] = useState(false);
   const [hideAfterFinish, setHideAfterFinish] = useState(false);
   const [isMaxScore, setIsMaxScore] = useState(false);
+  const [addMargin, setAddMargin] = useState(false);
 
   const handleClickNextLevel = () => {
     if (isFinished) {
@@ -26,6 +27,7 @@ function App() {
         setLevel((prevState) => prevState + 1);
         setIsFinished(false);
         setClickedBird(null);
+        setAddMargin(false);
         setScore((prevState) => {
           if (attempts < 5) {
             return prevState + 5 - attempts;
@@ -49,6 +51,7 @@ function App() {
       }
     }
   };
+
   const handleClickTryAgainButton = () => {
     setLevel(1);
     setIsFinished(false);
@@ -58,12 +61,18 @@ function App() {
     setScore(0);
     setAttempts(0);
   };
+  console.log("app changed");
+
   useEffect(() => {
     const dataForCurrentLevel = birdsData.filter((el) => el.id === level);
     setDataForCard(dataForCurrentLevel.sort(() => Math.random() - 0.5));
     setCurrentBird(dataForCurrentLevel[0]?.unic);
     console.log("correct answer", dataForCurrentLevel[0]?.name);
   }, [level]);
+
+  useEffect(() => {
+    if (clickedBird !== null) setAddMargin(true);
+  }, [clickedBird]);
 
   const dataForOptions = birdsData.filter(
     (el) => el.unic === clickedBird && el.id === level
@@ -79,6 +88,7 @@ function App() {
   const nextLevelBtnClass = classNames({
     next_level__button: true,
     "next_level__button-active": isFinished,
+    // margin_for__button: addMargin,
   });
 
   return (
@@ -87,9 +97,7 @@ function App() {
         <Logo />
         <Score score={score} />
       </div>
-      <div className="menu__container">
-        <MenuList info={infoMenu} level={level} />
-      </div>
+      <MenuList info={infoMenu} level={level} />
       {hideAfterFinish ? null : (
         <div className="question__container">
           <Card

@@ -23,7 +23,11 @@ $rhap_font-family: inherit !default;
   background-color: #f5ffde;
   border-radius: 10px;
   display: block;
-  margin: 10px auto;
+  margin: 10px;
+  object-fit: cover;
+  @media (max-width: 700px) {
+    margin: 10px auto;
+  }
 }
 .name-of-bird {
   color: white;

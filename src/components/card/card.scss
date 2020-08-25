@@ -1,3 +1,9 @@
+$rhap_theme-color: #a1ad86 !default;
+$rhap_background-color: transparent !default;
+$rhap_bar-color: #a7a7a7 !default;
+$rhap_time-color: #ffffff !default;
+$rhap_font-family: inherit !default;
+
 .card__container {
   width: 100%;
   display: flex;
@@ -14,7 +20,7 @@
 .image__bird {
   width: 150px;
   height: 150px;
-  background-color: #e6e6e6;
+  background-color: #f5ffde;
   border-radius: 10px;
   display: block;
   margin: 10px auto;
@@ -32,8 +38,17 @@
 }
 .card-info__container {
   width: 100%;
-  margin-right: 40px;
+  margin-right: 30px;
 }
+.rhap_main-controls-button {
+  margin: 0 3px;
+  color: $rhap_theme-color;
+  font-size: 35px;
+  width: 35px;
+  height: 35px;
+  outline: none;
+}
+
 .rhap_container {
   background-color: transparent;
   box-shadow: none;
@@ -61,6 +76,9 @@
     margin-right: -41px;
   }
 }
+.rhap_progress-indicator {
+  background-color: #a1ad86;
+}
 .rhap_repeat-button {
   display: none;
 }
@@ -74,6 +92,12 @@
   @media (max-width: 500px) {
     flex-direction: column;
   }
+}
+.rhap_volume-button {
+  color: $rhap_theme-color;
+}
+.rhap_volume-indicator {
+  background-color: $rhap_theme-color;
 }
 .species-of-bird {
   color: white;

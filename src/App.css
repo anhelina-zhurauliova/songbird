@@ -29,7 +29,8 @@ body {
   outline: none;
 }
 .next_level__button-active {
-  background-color: #00bc8c;
+  background-color: #b9c799;
+  color: #424737;
 }
 .end_game__container {
   background-color: white;

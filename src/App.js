@@ -19,7 +19,6 @@ function App() {
   const [isFinished, setIsFinished] = useState(false);
   const [hideAfterFinish, setHideAfterFinish] = useState(false);
   const [isMaxScore, setIsMaxScore] = useState(false);
-  const [addMargin, setAddMargin] = useState(false);
 
   const handleClickNextLevel = () => {
     if (isFinished) {
@@ -27,7 +26,6 @@ function App() {
         setLevel((prevState) => prevState + 1);
         setIsFinished(false);
         setClickedBird(null);
-        setAddMargin(false);
         setScore((prevState) => {
           if (attempts < 5) {
             return prevState + 5 - attempts;
@@ -61,7 +59,6 @@ function App() {
     setScore(0);
     setAttempts(0);
   };
-  console.log("app changed");
 
   useEffect(() => {
     const dataForCurrentLevel = birdsData.filter((el) => el.id === level);
@@ -69,10 +66,6 @@ function App() {
     setCurrentBird(dataForCurrentLevel[0]?.unic);
     console.log("correct answer", dataForCurrentLevel[0]?.name);
   }, [level]);
-
-  useEffect(() => {
-    if (clickedBird !== null) setAddMargin(true);
-  }, [clickedBird]);
 
   const dataForOptions = birdsData.filter(
     (el) => el.unic === clickedBird && el.id === level

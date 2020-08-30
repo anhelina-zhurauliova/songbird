@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:regular,bold,italic&subset=latin,latin-ext");
+
+.App {
+  height: 100%;
+}
+body {
+  background-color: #222222;
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+.game__container {
+  display: flex;
+  margin: 0px 40px;
+  height: 100%;
+}
+.question__container {
+  margin: 0px 40px;
+}
+.next_level__button {
+  width: calc(100% - 80px);
+  margin: 20px 40px;
+  height: 36px;
+  background-color: #303030;
+  border: 1px solid #444;
+  transition: 0.3s;
+  color: white;
+  outline: none;
+}
+.next_level__button-active {
+  background-color: #b9c799;
+  color: #424737;
+  cursor: pointer;
+}
+.end_game__container {
+  background-color: white;
+  height: 300px;
+  margin: 40px;
+  position: relative;
+  background-color: #303030;
+  border-radius: 5px;
+}
+.cogratulations {
+  font-size: 42px;
+  text-align: center;
+  color: white;
+}
+.score_congrats_text {
+  margin-top: -29px;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+.try_again__button {
+  width: calc(100% - 80px);
+  margin: 40px;
+  background-color: #00bc8c;
+  border: 1px solid #444;
+  outline: none;
+  color: white;
+}
+.max_score_gif {
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 1120px) {
+  .game__container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (max-width: 700px) {
+  .margin_for__button {
+    margin-top: 150px;
+  }
+}
+@media (max-width: 500px) {
+  .margin_for__button {
+    margin-top: 225px;
+  }
+  .header__container {
+    flex-wrap: wrap;
+  }
+  .cogratulations {
+    font-size: 35px;
+    padding-top: 15px;
+  }
+  .score_congrats_text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 340px) {
+  .max_score_gif {
+    width: 217px;
+  }
+}
